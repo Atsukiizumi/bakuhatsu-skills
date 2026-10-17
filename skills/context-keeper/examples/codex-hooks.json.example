@@ -1,0 +1,29 @@
+{
+  "description": "Context Keeper checkpoint advisory hooks. Review and trust manually; merge into project/user hooks per supported version.",
+  "hooks": {
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.agents/skills/context-keeper/scripts/context_keeper.py\" hook \"$(git rev-parse --show-toplevel)\" --host codex --event precompact --record",
+            "timeout": 10,
+            "statusMessage": "Context Keeper precompact audit"
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.agents/skills/context-keeper/scripts/context_keeper.py\" hook \"$(git rev-parse --show-toplevel)\" --host codex --event postcompact --record",
+            "timeout": 10,
+            "statusMessage": "Context Keeper postcompact audit"
+          }
+        ]
+      }
+    ]
+  }
+}

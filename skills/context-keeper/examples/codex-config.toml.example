@@ -1,0 +1,5 @@
+# 以下只是可选配置项示例，手工合并 ~/.codex/config.toml，勿直接覆盖。
+# 不要猜测当前模型上下文窗口或把固定阈值套用于全部模型。
+# model_auto_compact_token_limit = 96000  # 仅在已确认模型窗口及保留区时自行设定
+# compact_prompt = "Preserve user constraints, P0/P1 state, modified files, evidence, blockers and handoff references."
+# 注意：某些远程压缩路径可能不应用 compact_prompt；独立检查点仍然必须保留。

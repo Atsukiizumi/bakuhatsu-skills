@@ -1,0 +1,35 @@
+{
+  "_comment": "合并到现有 .claude/settings.json 的 hooks 字段；删除 _comment；确保路径与 Python 命令符合系统环境。按需启用。",
+  "hooks": {
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PROJECT_DIR}/.claude/skills/context-keeper/scripts/context_keeper.py\" hook \"${CLAUDE_PROJECT_DIR}\" --host claude --event precompact --record"
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PROJECT_DIR}/.claude/skills/context-keeper/scripts/context_keeper.py\" hook \"${CLAUDE_PROJECT_DIR}\" --host claude --event postcompact --record"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PROJECT_DIR}/.claude/skills/context-keeper/scripts/context_keeper.py\" hook \"${CLAUDE_PROJECT_DIR}\" --host claude --event sessionstart"
+          }
+        ]
+      }
+    ]
+  }
+}

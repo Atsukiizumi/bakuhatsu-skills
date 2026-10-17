@@ -1,0 +1,7 @@
+{
+  "_comment": "与现有 .gemini/settings.json 合并；删除 _comment，检查系统 Python 命令与 cwd。PreCompress 为异步提醒，不能阻止或变更压缩。",
+  "hooks": {
+    "PreCompress": [{"hooks": [{"type": "command", "command": "python3 .agents/skills/context-keeper/scripts/context_keeper.py hook . --host gemini --event precompress --record"}]}],
+    "SessionStart": [{"hooks": [{"type": "command", "command": "python3 .agents/skills/context-keeper/scripts/context_keeper.py hook . --host gemini --event sessionstart"}]}]
+  }
+}
